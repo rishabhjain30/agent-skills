@@ -1,0 +1,17 @@
+{
+  "name": "recordroom",
+  "version": "1.0.0",
+  "description": "RecordRoom — monitor and test AI agent conversations",
+  "owner": {
+    "name": "RecordRoom",
+    "email": "support@recordroom.ai"
+  },
+  "plugins": [
+    {
+      "name": "recordroom",
+      "description": "RecordRoom agent monitoring, trace parsing, and issue reproduction",
+      "source": ".",
+      "category": "development"
+    }
+  ]
+}
