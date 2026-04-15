@@ -31,11 +31,15 @@ RecordRoom monitors AI agent conversations. It syncs traces from Langfuse (and o
 
 **Findings:**
 - `npx recordroom findings list` — list analysis findings
+- `npx recordroom findings show <id>` — full finding detail
 - `npx recordroom findings summary` — show findings summary
+- `npx recordroom findings create --trace <id> --issue <id> --description "..."` — create manual finding
 - `npx recordroom findings confirm <id>` — confirm a finding
 - `npx recordroom findings accept <id>` — accept a finding
 - `npx recordroom findings edit-accept <id> --description "..."` — accept with edit
 - `npx recordroom findings dismiss <id>` — dismiss a finding
+- `npx recordroom findings update <id> --severity high` — change severity/category/issue
+- `npx recordroom findings categories` — list finding categories
 
 **Issues:**
 - `npx recordroom issues list` — list quality issues
@@ -62,17 +66,21 @@ RecordRoom monitors AI agent conversations. It syncs traces from Langfuse (and o
 - `npx recordroom tasks create --issue <id> --input "..."` — manually create a task
 - `npx recordroom tasks fetch <id>` — fetch test case for local execution
 - `npx recordroom tasks grade <id> --output "..."` — grade locally-produced output
+- `npx recordroom tasks update <id> --severity critical` — update task fields
 - `npx recordroom tasks runs <id>` — run history for a task
+- `npx recordroom tasks categories` — list task categories
 
 **Runs (test execution history):**
 - `npx recordroom runs list` — list recent runs
 - `npx recordroom runs show <id>` — per-task results with diff markers
+- `npx recordroom runs results <id>` — full grader verdicts for a run
 - `npx recordroom runs rerun <id>` — re-run same task set
 - `npx recordroom runs cancel <id>` — cancel a running batch
 
 **Evaluation tests (legacy):**
 - `npx recordroom evals list` — list evaluation tests with pass/fail status
 - `npx recordroom evals show <test-id>` — show full test briefing
+- `npx recordroom evals update <test-id> --grader "..."` — update grader/severity
 - `npx recordroom evals run [test-id]` — run a test and show result
 - `npx recordroom evals run --all` — run all active tests
 
