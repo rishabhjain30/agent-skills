@@ -7,6 +7,8 @@ description: Fix failing evaluation tests, run regression checks, and diagnose a
 
 You are being asked to fix a failing evaluation test. RecordRoom tracks AI agent quality issues as eval tests — each test replays a real user conversation against the system and checks if the output meets specific criteria.
 
+> **Note:** If the test has a parent issue (most new tests do), the `recordroom tasks` commands provide a richer workflow with inheritance, benchmarks, and auto-regression. The `evals` commands remain for standalone eval tests and backward compatibility. See the `recordroom-tasks` skill for the full task workflow.
+
 ## Prerequisites
 
 - CLI must be authenticated: `npx recordroom auth status`
@@ -38,6 +40,12 @@ Filter to only failing or by severity:
 ```
 recordroom evals list --status failing
 recordroom evals list --severity critical
+```
+
+For tests with parent issues, you can also use:
+```
+recordroom tasks list --failing
+recordroom tasks benchmark
 ```
 
 ### Step 2: Understand the issue
@@ -114,6 +122,12 @@ To re-run only previously failing tests:
 recordroom evals run --failed
 ```
 
+For the newer tasks-based workflow:
+```
+recordroom tasks run --all
+recordroom tasks benchmark
+```
+
 ## Command Reference
 
 | Command | Purpose |
@@ -125,6 +139,9 @@ recordroom evals run --failed
 | `recordroom evals run <id>` | Run one test, show result |
 | `recordroom evals run --all` | Run all active tests |
 | `recordroom evals run --failed` | Re-run failing tests only |
+| `recordroom tasks list --failing` | Failing tasks (issue-linked tests) |
+| `recordroom tasks run --all` | Run all tasks (benchmark) |
+| `recordroom tasks benchmark` | Pass rate + category breakdown |
 | `recordroom api-config show <id>` | Inspect API config details |
 | `recordroom api-config export <id>` | Export config as JSON |
 | `recordroom api-config apply --file <path>` | Update config from JSON |
@@ -137,3 +154,4 @@ All commands support `--json` for structured output.
 - **Grader prompt** — An LLM acts as judge. The grader prompt defines pass/fail criteria. If the grader prompt seems wrong, that's a human issue — flag it to the user rather than trying to fix it.
 - **Original vs Replay** — The "Original Conversation" shows what happened in production (may be 20+ turns). The "Test Replay" is a shorter subset that reproduces the issue. They may show different results because the replay runs in a fresh context without the intermediate state built up in the original.
 - **API Config** — Defines how to call the system under test: authentication steps, project creation, and the actual chat endpoint. Each step can be setup-only or per-turn. See the `recordroom-api-config` skill for full details.
+- **Task inheritance** — Tests with a parent issue inherit `expected_behavior` from the issue. When the issue's expected behavior changes, inheriting tasks pick it up on the next run.
