@@ -1,5 +1,5 @@
 ---
-name: recordroom-issues
+name: issues
 description: Triage quality issues detected in AI agent conversations. Use when the user asks to review issues, triage findings, confirm or ignore issues, manage issue state, or investigate recurring patterns.
 ---
 
@@ -108,7 +108,7 @@ After confirming, generate test tasks from the issue's evidence:
 recordroom tasks generate <issue-id>
 ```
 
-See the `recordroom-tasks` skill for the full task workflow.
+See the `tasks` skill for the full task workflow.
 
 ### Step 6: Resolve when fixed
 

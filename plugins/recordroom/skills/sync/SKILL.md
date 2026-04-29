@@ -1,5 +1,5 @@
 ---
-name: recordroom-sync
+name: sync
 description: Sync traces from connected sources into RecordRoom. Use when the user mentions traces, recent conversations, debugging agent behavior, checking latest runs, or before any investigation.
 ---
 

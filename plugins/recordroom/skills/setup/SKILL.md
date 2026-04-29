@@ -1,5 +1,5 @@
 ---
-name: recordroom-setup
+name: setup
 description: Set up and authenticate RecordRoom CLI. Use when the user asks to install, configure, or log in to RecordRoom, or when RecordRoom commands fail due to missing auth.
 ---
 

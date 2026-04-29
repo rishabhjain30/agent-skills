@@ -1,5 +1,5 @@
 ---
-name: recordroom-connect
+name: connect
 description: Connect RecordRoom to Langfuse or other trace sources. Use when the user needs to set up a new data source, provides API keys, or when status shows no connected sources.
 ---
 

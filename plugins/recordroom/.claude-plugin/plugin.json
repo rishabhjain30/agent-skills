@@ -1,5 +1,10 @@
 {
   "name": "recordroom",
   "version": "1.0.0",
-  "description": "RecordRoom — monitor and test AI agent conversations"
+  "description": "Skills for RecordRoom: setup, connect, sync, investigate traces, triage issues, and run regression tests",
+  "author": {
+    "name": "RecordRoom",
+    "email": "support@recordroom.ai"
+  },
+  "homepage": "https://recordroom.ai"
 }
