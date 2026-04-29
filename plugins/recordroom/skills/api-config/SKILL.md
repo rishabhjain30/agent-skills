@@ -1,5 +1,5 @@
 ---
-name: recordroom-api-config
+name: api-config
 description: Create, debug, and manage API configurations for RecordRoom evaluations. Use when the user needs to set up how RecordRoom calls their agent's API, fix failing eval tests due to HTTP errors, or modify an existing API config.
 ---
 
@@ -11,7 +11,7 @@ You are working with API configurations that define how RecordRoom calls the sys
 
 - CLI must be authenticated: `npx recordroom auth status`
 - A datasource must be connected: `npx recordroom status`
-- If either fails, follow the recordroom-setup workflow first
+- If either fails, follow the setup skill workflow first
 
 ## When You Need This
 
@@ -303,4 +303,4 @@ When creating an API config from scratch to replay existing traces:
 
 8. **Iterate** — If the eval fails, check the execution log in `recordroom evals show <test-id>` for the exact error. Common issues: wrong extraction path, missing variables, auth expiry, timeout too short.
 
-Once configured, use `recordroom evals run --all` to execute all tests. See the `recordroom-evals` skill for the full eval workflow.
+Once configured, use `recordroom evals run --all` to execute all tests. See the `evals` skill for the full eval workflow.

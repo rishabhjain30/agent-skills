@@ -1,5 +1,5 @@
 ---
-name: recordroom-tasks
+name: tasks
 description: Build and run regression test suites from confirmed issues. Use when the user asks to create tests, run benchmarks, check pass rates, generate task candidates, ship drafts, or verify fixes.
 ---
 
@@ -35,7 +35,7 @@ Shows overall pass rate, per-category breakdown, and counts of passing/failing/d
 
 ### Step 2: Generate tasks from an issue
 
-After confirming an issue (see `recordroom-issues` skill), generate test candidates:
+After confirming an issue (see `issues` skill), generate test candidates:
 
 ```bash
 recordroom tasks generate <issue-id>

@@ -1,5 +1,5 @@
 ---
-name: recordroom-investigate
+name: investigate
 description: Investigate recent traces to find errors, performance issues, or behavior patterns. Use when the user asks to analyze trace quality, debug agent runs, find error patterns, or summarize recent activity.
 ---
 

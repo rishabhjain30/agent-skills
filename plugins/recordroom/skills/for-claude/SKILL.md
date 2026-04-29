@@ -1,5 +1,5 @@
 ---
-name: recordroom-for-claude
+name: for-claude
 description: RecordRoom awareness — monitors AI agent conversations, triages quality issues, builds regression test suites. Use when the user asks about trace quality, agent performance, error patterns, wants to triage issues, run benchmarks, reproduce issues, or manage evaluation tests.
 ---
 
@@ -118,6 +118,6 @@ npx recordroom sync
 
 ## Reproduce issues
 
-See the `recordroom-issues` skill for the triage workflow, and `recordroom-tasks` for building and running regression tests.
+See the `issues` skill for the triage workflow, and `tasks` for building and running regression tests.
 
-For legacy eval tests without parent issues, see the `recordroom-evals` skill.
+For legacy eval tests without parent issues, see the `evals` skill.

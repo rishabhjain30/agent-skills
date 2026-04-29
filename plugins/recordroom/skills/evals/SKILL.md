@@ -1,5 +1,5 @@
 ---
-name: recordroom-evals
+name: evals
 description: Fix failing evaluation tests, run regression checks, and diagnose agent issues. Use when the user asks to fix evals, reproduce issues, run tests, or debug why an eval is failing.
 ---
 
@@ -7,15 +7,15 @@ description: Fix failing evaluation tests, run regression checks, and diagnose a
 
 You are being asked to fix a failing evaluation test. RecordRoom tracks AI agent quality issues as eval tests — each test replays a real user conversation against the system and checks if the output meets specific criteria.
 
-> **Note:** If the test has a parent issue (most new tests do), the `recordroom tasks` commands provide a richer workflow with inheritance, benchmarks, and auto-regression. The `evals` commands remain for standalone eval tests and backward compatibility. See the `recordroom-tasks` skill for the full task workflow.
+> **Note:** If the test has a parent issue (most new tests do), the `recordroom tasks` commands provide a richer workflow with inheritance, benchmarks, and auto-regression. The `evals` commands remain for standalone eval tests and backward compatibility. See the `tasks` skill for the full task workflow.
 
 ## Prerequisites
 
 - CLI must be authenticated: `npx recordroom auth status`
 - A datasource must be connected: `npx recordroom status`
-- If either fails, follow the recordroom-setup workflow first
+- If either fails, follow the setup skill workflow first
 - An API config must exist: `npx recordroom api-config list`
-- If no API config exists, see the `recordroom-api-config` skill to create one
+- If no API config exists, see the `api-config` skill to create one
 
 ## Your Workflow
 
@@ -78,7 +78,7 @@ Read the grader reasoning carefully. There are two types of failures:
 
 **The system produces wrong output** — The code has a bug or missing logic. The grader reasoning will describe what's wrong with the response content. Search the codebase for the relevant handler/service based on the API config endpoint.
 
-**The test infrastructure fails** — You see HTTP errors (504, 401, etc.), HTML error pages, or "payment_required" responses. This is an API config or environment issue, not a code bug. See the `recordroom-api-config` skill for full config structure, variable resolution, and debugging guide. Quick inspection:
+**The test infrastructure fails** — You see HTTP errors (504, 401, etc.), HTML error pages, or "payment_required" responses. This is an API config or environment issue, not a code bug. See the `api-config` skill for full config structure, variable resolution, and debugging guide. Quick inspection:
 
 ```
 recordroom api-config show <config-id>
@@ -153,5 +153,5 @@ All commands support `--json` for structured output.
 - **Evaluated turn** — In multi-turn tests, only one turn's output is judged. The other turns provide context (setup steps, prior conversation). The evaluated turn is marked in the output.
 - **Grader prompt** — An LLM acts as judge. The grader prompt defines pass/fail criteria. If the grader prompt seems wrong, that's a human issue — flag it to the user rather than trying to fix it.
 - **Original vs Replay** — The "Original Conversation" shows what happened in production (may be 20+ turns). The "Test Replay" is a shorter subset that reproduces the issue. They may show different results because the replay runs in a fresh context without the intermediate state built up in the original.
-- **API Config** — Defines how to call the system under test: authentication steps, project creation, and the actual chat endpoint. Each step can be setup-only or per-turn. See the `recordroom-api-config` skill for full details.
+- **API Config** — Defines how to call the system under test: authentication steps, project creation, and the actual chat endpoint. Each step can be setup-only or per-turn. See the `api-config` skill for full details.
 - **Task inheritance** — Tests with a parent issue inherit `expected_behavior` from the issue. When the issue's expected behavior changes, inheriting tasks pick it up on the next run.

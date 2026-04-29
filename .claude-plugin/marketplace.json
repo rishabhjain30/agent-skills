@@ -1,17 +1,25 @@
 {
   "name": "recordroom",
-  "version": "1.0.0",
-  "description": "RecordRoom — monitor and test AI agent conversations",
   "owner": {
     "name": "RecordRoom",
     "email": "support@recordroom.ai"
   },
+  "metadata": {
+    "description": "RecordRoom — monitor and test AI agent conversations from Claude Code",
+    "version": "1.0.0"
+  },
   "plugins": [
     {
       "name": "recordroom",
-      "description": "RecordRoom agent monitoring, trace parsing, and issue reproduction",
+      "description": "Skills for RecordRoom: setup, connect, sync, investigate traces, triage issues, and run regression tests",
+      "version": "1.0.0",
       "source": "./plugins/recordroom",
-      "category": "development"
+      "category": "development",
+      "homepage": "https://recordroom.ai",
+      "author": {
+        "name": "RecordRoom",
+        "email": "support@recordroom.ai"
+      }
     }
   ]
 }

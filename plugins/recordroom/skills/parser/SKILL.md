@@ -1,5 +1,5 @@
 ---
-name: recordroom-parser
+name: parser
 description: Create or modify trace parsers for RecordRoom accounts. Use when the user asks to set up a parser, write a parser, fix a parser, or onboard a new account's trace format.
 ---
 
