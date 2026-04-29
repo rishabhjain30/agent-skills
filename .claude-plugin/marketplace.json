@@ -10,7 +10,7 @@
     {
       "name": "recordroom",
       "description": "RecordRoom agent monitoring, trace parsing, and issue reproduction",
-      "source": ".",
+      "source": "./plugins/recordroom",
       "category": "development"
     }
   ]
